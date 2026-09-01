@@ -1,4 +1,4 @@
-# Filmfriend for Kodi - macsobeck local fork
+# Filmfriend Kodi Add-on for Kodi 21 Omega and LibreELEC
 
 This is an independent maintenance fork of Ingo-FP-Angel's
 `plugin.video.filmfriend.de`. It was created so that authentication changes
@@ -18,12 +18,12 @@ Available languages for the user interface are German and English.
 
 ## Install the add-on
 
-This independent fork is distributed only as a local ZIP. Its add-on ID is
+Download the latest Kodi installation ZIP from the
+[GitHub Releases page](https://github.com/macsobeck/plugin.video.filmfriend.macsobeck/releases/latest).
+
+The independent fork uses the add-on ID
 `plugin.video.filmfriend.macsobeck`, so repositories containing
 `plugin.video.filmfriend.de` cannot update or replace it.
-
-Source code and releases are published at
-https://github.com/macsobeck/plugin.video.filmfriend.macsobeck.
 
 Install the ZIP locally, start it once to migrate existing settings from
 `plugin.video.filmfriend.de`, verify playback, and then disable or uninstall the
