@@ -1,0 +1,18 @@
+# File-based project format
+*.iws
+
+# IntelliJ
+.idea/
+out/
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+.tokensave
+
+# Python/Kodi development artifacts
+__pycache__/
+*.py[cod]
+.DS_Store

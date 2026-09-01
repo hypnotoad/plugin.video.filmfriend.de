@@ -1,0 +1,49 @@
+name: build_and_release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_release:
+    name: build_release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+
+      - name: set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: verify release source
+        run: |
+          python -m compileall -q plugin.video.filmfriend.macsobeck tests
+          python -m unittest discover -s tests -v
+
+      - name: get version from addon.xml
+        id: version
+        run: |
+          version=$(grep "<addon" plugin.video.filmfriend.macsobeck/addon.xml | cut -d '"' -f 6)
+          echo "VERSION=$version" >> "$GITHUB_OUTPUT"
+
+      - name: create addon ZIP
+        run: |
+          cp LICENSE.txt LICENSE-NOTICE.md README.md changelog.txt plugin.video.filmfriend.macsobeck/
+          zip -D -r plugin.video.filmfriend.macsobeck-${{ steps.version.outputs.VERSION }}.zip plugin.video.filmfriend.macsobeck -x '*/__pycache__/*' '*.pyc'
+
+      - name: get changes in version
+        id: changelog
+        run: sed -n "/^v${{ steps.version.outputs.VERSION }}/, /^v.*/{ /^v.*/!p }" changelog.txt > release_message.txt
+
+      - name: release
+        uses: ncipollo/release-action@v1
+        id: create_release
+        with:
+          artifacts: plugin.video.filmfriend.macsobeck-${{ steps.version.outputs.VERSION }}.zip
+          tag: v${{ steps.version.outputs.VERSION }}
+          commit: ${{ github.sha }}
+          bodyFile: release_message.txt

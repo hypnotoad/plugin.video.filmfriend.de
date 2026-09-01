@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.filmfriend.macsobeck" name="Filmfriend AT/BE/CH/DE/FR/LI/LU (macsobeck)" version="1.4.1" provider-name="macsobeck">
+    <requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.requests" version="2.19.1"/>
+		<import addon="inputstream.adaptive" version="2.5.4"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+		<language>en de</language>
+		<license>GPL-2.0-only</license>
+		<source>https://github.com/macsobeck/plugin.video.filmfriend.macsobeck</source>
+        <news><![CDATA[
+	v1.4.1 (2026-09-01)
+	- Identify this release as macsobeck's independent fork of Ingo-FP-Angel's add-on for promptly handling Stuttgart changes.
+	- Support Filmfriend v18 integrated external providers such as Stadtbibliothek Stuttgart.
+	- Retain compatibility with the older OpenId and delegated/IP provider metadata.
+	- Publish the current independent macsobeck release.
+
+	v1.4.0 (2026-09-01)
+	- Create an independent local fork maintained by macsobeck.
+	- Use a distinct add-on ID so repositories for the former add-on cannot update this fork.
+	- Migrate existing library, provider, and token settings once without logging their values.
+
+	v1.3.4 (2026-07-24)
+	- Fix Widevine startup on Kodi 21 by using only the supported drm_legacy interface.
+	- Prevent InputStream Adaptive from rejecting mixed DRM properties before license acquisition.
+
+	v1.3.3 (2026-07-24)
+	- Move catalogue, metadata, watchlist, and playback requests to Filmfriend's current tenant API v18.
+	- Translate existing Kodi menu filters to the v18 search contract without changing the UI.
+	- Stop treating legacy public-catalogue HTTP 401 responses as expired user sessions.
+	- Adapt series and episode navigation to the current parent-resource endpoints.
+
+	v1.3.2 (2026-07-24)
+	- Fix Kodi 21 validation of hidden authentication migration settings.
+	- Preserve the legacy Filmfriend search URL and retry catalogue HTTP 401 responses with the bearer token.
+	- Add credential-safe endpoint diagnostics for API failures.
+
+	v1.3.1 (2026-07-24)
+	- Make token refresh concurrency-safe and retry authenticated requests once after HTTP 401.
+	- Add testable API/authentication services and non-destructive settings migration.
+	- Add structured diagnostics with mandatory credential redaction.
+	- Update Kodi 21 Widevine properties while retaining the Omega-compatible legacy path.
+
+	v1.3.0 (2026-07-13)
+- Add support for SWITCH edu-ID based login (by CorentinWicht)
+
+v1.2.3 (2026-07-09)
+- Add support for libraries in Belgium, Liechtenstein and Luxembourg.
+
+v1.2.2 (2026-07-08)
+- Add support for French libraries.
+
+v1.2.1 (2026-07-05)
+- Fix login for Munich (and likely other libraries with "external" login).
+
+v1.2.0 (2026-07-04)
+- Change the way the addon authenticates for certain libraries in order to support the Berlin and Stuttgart libraries again (by H3rby7).
+
+v1.1.1 (2026-04-12)
+- Fix issue refreshing an expired access token that was introduced in v1.1.0.
+
+v1.1.0 (2025-12-19)
+- Change the way the addon authenticates for certain libraries in order to support the Hamburg library again.
+  This also adds support for Stadtbibliothek Darmstadt.
+
+v1.0.15 (2025-11-22)
+- Fix a crash when showing all available series from the main menu
+
+v1.0.14 (2025-02-13)
+- Add menu entry to browse videos by genre (by rantan-plan)
+- Preselect library and credentials during (re-)login if present (by rantan-plan)
+- Internal code optimizations
+
+v1.0.13 (2025-02-04)
+- Tell user to login again manually when automatic token refresh failed
+
+v1.0.12 (2024-08-02)
+- Fix sorting of seasons and episodes of a series
+
+v1.0.11 (2024-04-21)
+- Add support for IP based login
+- Show an error if a library only offers login methods not supported by this addon
+
+v1.0.10 (2024-02-27)
+- Add support for Austrian and Swiss libraries
+  On login users now first have to select their country
+
+v1.0.9 (2024-02-05)
+- Automatically refresh an expired access_token
+  When updating from an earlier version, the autorefresh only works
+  after the next manual login
+]]>
+        </news>
+        <website>https://www.filmfriend.de/</website>
+        <summary lang="en_GB">This video add-on provides access to shows and movies of Filmfriend.</summary>
+        <description lang="en_GB">
+            This video add-on provides access to shows and movies of Filmfriend.
+            It is an independent macsobeck-maintained fork of Ingo-FP-Angel's add-on, created to handle authentication changes required by Stadtbibliothek Stuttgart promptly.
+            A valid library account is required in order to use this add-on.
+            Supports libraries in Germany, Austria, Switzerland, Liechtenstein, Belgium, Luxembourg, and France.
+            UI languages: German and English.
+        </description>
+        <disclaimer lang="en_GB">Free for everyone to use, study, modify and share under GPL-2.0-only. Independent macsobeck-maintained fork of Ingo-FP-Angel's add-on; not affiliated with Filmfriend.</disclaimer>
+        <summary lang="de_DE">Dieses Add-on bietet Zugriff auf Filme und Serien von Filmfriend.</summary>
+        <description lang="de_DE">
+            Dieses Add-on bietet Zugriff auf Filme und Serien von Filmfriend.
+            Es ist ein unabhängig von macsobeck gepflegter Fork des Add-ons von Ingo-FP-Angel, der erstellt wurde, um die für die Stadtbibliothek Stuttgart erforderlichen Anmeldeänderungen zeitnah umzusetzen.
+            Ein Bibliotheksaccount ist zur Nutzung dieses Dienstes nötig.
+            Unterstützt Bibliotheken in Deutschland, Österreich, der Schweiz, Liechtenstein, Belgien, Luxemburg und Frankreich.
+            Sprachen für die Benutzeroberfläche: Deutsch und Englisch.
+        </description>
+        <disclaimer lang="de_DE">Unter GPL-2.0-only für alle frei nutzbar, einsehbar, veränderbar und weitergebbar. Unabhängig von macsobeck gepflegter Fork des Add-ons von Ingo-FP-Angel; keine Verbindung zu Filmfriend.</disclaimer>
+        <assets>
+            <icon>resources/icon.png</icon>
+            <fanart>resources/fanart.png</fanart>
+        </assets>
+    </extension>
+</addon>
