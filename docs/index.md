@@ -19,4 +19,5 @@ Kodi 21 Omega.
 ## Source code
 
 [Filmfriend Kodi add-on for Kodi 21 Omega and Stadtbibliothek Stuttgart](https://github.com/macsobeck/plugin.video.filmfriend.macsobeck)
+
 The add-on is available to everyone under GPL-2.0-only.
