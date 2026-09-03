@@ -16,7 +16,7 @@ Kodi 21 Omega.
 
 [Download the latest Kodi installation ZIP](https://github.com/macsobeck/plugin.video.filmfriend.macsobeck/releases/latest)
 
-## Source code
+## GitHub Source
 
 [Filmfriend Kodi add-on for Kodi 21 Omega and Stadtbibliothek Stuttgart](https://github.com/macsobeck/plugin.video.filmfriend.macsobeck)
 
