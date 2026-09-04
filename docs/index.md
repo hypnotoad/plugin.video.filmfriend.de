@@ -3,7 +3,7 @@ title: Filmfriend Kodi Add-on for LibreELEC - offering swift updates required fo
 description: Focus is on offering swift updates required for authentication by "Stadtbibliothek Stuttgart".   
 ---
 
-# Filmfriend Kodi Add-on for LibreELEC offering swift updates required for authentication by "Stadtbibliothek Stuttgart
+# Filmfriend Kodi Add-on for LibreELEC offering swift updates required for authentication by "Stadtbibliothek Stuttgart"
 
 Independent Filmfriend video add-on for Kodi 21 Omega, LibreELEC and Python 3,
 maintained by macsobeck.
