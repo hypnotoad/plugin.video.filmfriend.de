@@ -259,8 +259,10 @@ class lm4:
 	def libMediathekSearch(self):
 		sString = xbmcgui.Dialog().input(self.translation(32139))
 		if sString == '':
-			xbmcplugin.endOfDirectory(int(sys.argv[1]),succeeded=False)
-			return
+			# Kodi returns an empty string when the input dialog is cancelled.
+			# Return a valid empty page so action() can finish the directory
+			# successfully instead of passing None to addEntries().
+			return {'items':[]}
 		return self.searchModes[self.params['searchMode']](urllib.parse.quote(sString))
 			
 	def libMediathekListLetters(self):

@@ -1,7 +1,7 @@
 # Architecture and compatibility review
 
 This review covers the complete `plugin.video.filmfriend.de` 1.3.0 source
-snapshot and the reliability changes released through 1.4.1 of the independent
+snapshot and the reliability changes released through 1.4.3 of the independent
 fork. The target is Kodi 21
 Omega on LibreELEC with Python 3. The menu layout and navigation model are
 deliberately unchanged.

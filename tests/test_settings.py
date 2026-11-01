@@ -36,7 +36,7 @@ class SettingsTests(unittest.TestCase):
 
         self.assertEqual(
             "plugin.video.filmfriend.macsobeck", addon.attrib["id"])
-        self.assertEqual("1.4.1", addon.attrib["version"])
+        self.assertEqual("1.4.3", addon.attrib["version"])
         self.assertEqual("macsobeck", addon.attrib["provider-name"])
         self.assertEqual(
             "https://github.com/macsobeck/plugin.video.filmfriend.macsobeck",

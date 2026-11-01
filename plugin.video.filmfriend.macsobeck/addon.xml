@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.filmfriend.macsobeck" name="Filmfriend AT/BE/CH/DE/FR/LI/LU (macsobeck)" version="1.4.1" provider-name="macsobeck">
+<addon id="plugin.video.filmfriend.macsobeck" name="Filmfriend AT/BE/CH/DE/FR/LI/LU (macsobeck)" version="1.4.3" provider-name="macsobeck">
     <requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests" version="2.19.1"/>
@@ -14,6 +14,15 @@
 		<license>GPL-2.0-only</license>
 		<source>https://github.com/macsobeck/plugin.video.filmfriend.macsobeck</source>
         <news><![CDATA[
+	v1.4.3 (2026-11-01)
+	- Handle a cancelled search as an empty result instead of a directory error.
+	- Add regression coverage for cancelling the Kodi search input dialog.
+
+	v1.4.2 (2026-11-01)
+	- Keep the "New films" directory usable when Filmfriend returns a null release date.
+	- Add regression coverage for missing and malformed catalogue dates.
+	- Retain the Kodi 21 Omega Widevine playback path used with InputStream Adaptive 21.5.25.
+
 	v1.4.1 (2026-09-01)
 	- Identify this release as macsobeck's independent fork of Ingo-FP-Angel's add-on for promptly handling Stuttgart changes.
 	- Support Filmfriend v18 integrated external providers such as Stadtbibliothek Stuttgart.

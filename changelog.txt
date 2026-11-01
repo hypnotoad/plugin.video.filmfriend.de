@@ -1,3 +1,12 @@
+v1.4.3
+- [fix] Finish a cancelled search without passing a null result to the directory renderer.
+- [test] Cover cancelling the Kodi search input dialog.
+
+v1.4.2
+- [fix] Accept null releaseDate values without failing the "New films" directory.
+- [test] Cover valid, null, empty, and malformed catalogue release dates.
+- [compatibility] Retain the Kodi 21 Omega Widevine path used with InputStream Adaptive 21.5.25.
+
 v1.4.1
 - [provenance] Identify this as macsobeck's independent fork of Ingo-FP-Angel's add-on, created to handle Stuttgart changes promptly.
 - [fix] Recognize v17/v18 preferIntegratedAuthentication providers as the supported external OpenID flow.

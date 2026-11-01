@@ -7,6 +7,7 @@ import xbmcgui
 import resources.lib.external.libmediathek4utils as lm4utils
 from resources.lib.api import ApiError, NotFound
 from resources.lib.auth import AuthenticationError, LoginExpired, LoginRequired
+from resources.lib.catalog import release_date_metadata
 from resources.lib.kodi_runtime import build_runtime
 
 __addon__ = xbmcaddon.Addon()
@@ -162,10 +163,8 @@ def parseResponse(responseJson, content='videos'):
 			if 'genres' in result['series']:
 				for genre in result['series']['genres']:
 					d['metadata']['genres'].append(_getString(genre,'name'))
-			if 'releaseDate' in result:
-				d['metadata']['year'] = result['releaseDate'][:4]
-				d['metadata']['premiered'] = result['releaseDate'][:10]
-				d['metadata']['aired'] = result['releaseDate'][:10]
+			d['metadata'].update(
+				release_date_metadata(result.get('releaseDate')))
 
 			d['params']['params'] = f'?kinds=Video&season={result["id"]}&orderBy={lang["order"]}&sortDirection=Ascending'
 			res['items'].append(d)
@@ -185,10 +184,8 @@ def parseResponse(responseJson, content='videos'):
 				d['metadata']['episode'] = result['episodeNumber']
 				d['type'] = 'episode'
 			d['metadata']['duration'] = result['runtime']
-			if 'releaseDate' in result:
-				d['metadata']['year'] = result['releaseDate'][:4]
-				d['metadata']['premiered'] = result['releaseDate'][:10]
-				d['metadata']['aired'] = result['releaseDate'][:10]
+			d['metadata'].update(
+				release_date_metadata(result.get('releaseDate')))
 			d['metadata']['art'] = _getArt(result)
 
 			participations = result.get(
